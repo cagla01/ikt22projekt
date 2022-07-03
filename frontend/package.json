@@ -1,0 +1,14 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "IKT Semesteraufgabe",
+  "main": "index.html",
+  "scripts": {
+    "start": "../node_modules/.bin/http-server -c-1"
+  },
+  "author": "Cagla Karaman",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^14.1.0"
+  }
+}
