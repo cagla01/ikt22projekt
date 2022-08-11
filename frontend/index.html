@@ -9,7 +9,7 @@
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
     <!-- Material Design icon font -->
-    <link rel="stylesheet" href=„https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- <link rel="stylesheet" href=„https://fonts.googleapis.com/icon?family=Material+Icons"> -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet"
@@ -23,21 +23,9 @@
 <div id="app">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <header class="mdl-layout__header">
-            <div class="mdl-layout__header-row">
-                <!-- Title -->
-                <span class="mdl-layout-title">FooDiary</span>
-                <!-- Add spacer, to align navigation to the right -->
-                <div class="mdl-layout-spacer"></div>
-                <!-- Navigation. We hide it in small screens. -->
-                <nav class="mdl-navigation mdl-layout--large-screen-only">
-                    <div class="drawer-option">
-                        <button class="enable-notifications mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-color--accent">
-                            Benachrichtigungen Ein
-                        </button>
-                    </div>
-                </nav>
-            </div>
+
         </header>
+
         <main class="mdl-layout__content mat-typography">
             <div id="create-post">
                 <form>
@@ -51,7 +39,7 @@
                     </div>
                     <br>
                     <div>
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-color--accent"
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
                                 type="submit" id="post-btn">Speichern
                         </button>
                     </div>
@@ -63,11 +51,19 @@
                     </div>
                 </form>
             </div>
+            <div class="page-content">
+                <h5 class="text-center mdl-color-text--teal-700">FooDiary</h5>
+                <div id="shared-moments"></div>
+            </div>
             <div class="floating-button">
                 <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored"
                         id="share-image-button">
                     <i class="material-icons">add</i>
                 </button>
+            </div>
+            <div id="confirmation-toast" aria-live="assertive" aria-atomic="true" aria-relevant="text" class="mdl-snackbar mdl-js-snackbar">
+                <div class="mdl-snackbar__text"></div>
+                <button type="button" class="mdl-snackbar__action"></button>
             </div>
         </main>
     </div>

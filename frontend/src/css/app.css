@@ -5,3 +5,15 @@
 .drawer-option {
     padding: 16px;
 }
+
+.mdl-layout__header{
+    background: #1EAE98;
+}
+
+#share-image-button{
+    background: #1EAE98;
+}
+
+#post-btn{
+    background: #1EAE98;
+}
