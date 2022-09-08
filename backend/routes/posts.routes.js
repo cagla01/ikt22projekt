@@ -35,7 +35,7 @@ const collectionChunks = connect.collection('posts.chunks');
 function getOnePost(id) {
     return new Promise( async(resolve, reject) => {
         try {
-            const post = await Post.findOne({ _id: id });
+            const post = await Post.findOne({_id: id });
             let fileName = post.image_id;
 
             collectionFiles.find({filename: fileName}).toArray( async(err, docs) => {
