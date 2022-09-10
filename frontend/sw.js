@@ -1,4 +1,5 @@
 importScripts('/src/js/idb.js');
+importScripts('/src/js/db.js');
 
 const CACHE_VERSION = 3;
 const CURRENT_STATIC_CACHE = 'static-v'+CACHE_VERSION;
@@ -17,20 +18,6 @@ const STATIC_FILES = [
     'https://fonts.googleapis.com/icon?family=Material+Icons',
     'https://code.getmdl.io/1.3.0/material.blue_grey-red.min.css'
 ];
-
-const db = idb.openDB('posts-store', 1, {
-    upgrade(db) {
-        // Create a store of objects
-        const store = db.createObjectStore('posts', {
-            // The '_id' property of the object will be the key.
-            keyPath: '_id',
-            // If it isn't explicitly set, create a value by auto incrementing.
-            autoIncrement: true,
-        });
-        // Create an index on the '_id' property of the objects.
-        store.createIndex('_id', '_id');
-    },
-});
 
 self.addEventListener('install', event => {
     console.log('service worker --> installing ...', event);
@@ -70,23 +57,21 @@ self.addEventListener('fetch', event => {
             fetch(event.request)
                 .then ( res => {
                     const clonedResponse = res.clone();
-                    clonedResponse.json()
+                    clearAllData('posts')
+                        .then( () => {
+                            return clonedResponse.json();
+                        })
                         .then( data => {
                             for(let key in data)
                             {
-                                db
-                                    .then( dbPosts => {
-                                        let tx = dbPosts.transaction('posts', 'readwrite');
-                                        let store = tx.objectStore('posts');
-                                        store.put(data[key]);
-                                        return tx.done;
-                                    })
+                                console.log('write data', data[key]);
+                                writeData('posts', data[key]);
                             }
-                        })
+                        });
                     return res;
                 })
         )
-    } else {
+    }else {
         event.respondWith(
             caches.match(event.request)
                 .then( response => {
