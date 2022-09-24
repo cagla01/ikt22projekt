@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const postsRoutes = require('./routes/posts.routes');
+const subscriptionRoute = require('./routes/subscription.routes');
+
 require('dotenv').config();
 const mongoose = require('mongoose');
 
@@ -9,7 +11,8 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(cors());
-app.use('/posts', postsRoutes)
+app.use('/posts', postsRoutes);
+app.use('/subscription', subscriptionRoute);
 
 app.listen(PORT, (error) => {
     if(error) {

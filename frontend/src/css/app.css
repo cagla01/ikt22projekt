@@ -17,3 +17,7 @@
 #post-btn{
     background: #1EAE98;
 }
+
+.enable-notifications {
+    display: none;
+}

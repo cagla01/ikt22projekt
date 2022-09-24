@@ -4,25 +4,49 @@ const Post = require('../models/posts')
 const upload = require('../middleware/upload')
 const mongoose = require('mongoose')
 require('dotenv').config()
+const webpush = require('web-push');
 
-/* ----------------- POST ---------------------------- */
+const publicVapidKey = 'BM8oZZuUzCbrrBLou5ALaLvDqFoZ-spsUse8B_HYgLF0iA6NGYXIWMRrtEPZ4foBIYj2GiJOHsDTW1aq9RKdyag';
+const privateVapidKey = 'Rk-rutEWKJc1PECEWeGj-dEQ5jc3r7DtnZ6vWFaLkww';
+const pushSubscription = {
+    endpoint: 'https://fcm.googleapis.com/fcm/send/eYJva6wVkrQ:APA91bFEt4hMAgqjNPcuGJCtL-GYnsYc5jpsnWdTnk8JkC3oQPNSAjNfb_eQCnlKgsIe-HINTwktizly6KmEr-oPRsuPS0yEzNNwl9kthKIWlx8ZDUT56mRAtUckl1We295FBuVba-Si',
+    keys: {
+        auth: 'QoVpHvFN5ZlRAEnMwheaFw',
+        p256dh: 'BEE2Yr1yOGGmZcsDk8m4AREEG3dQPg5y9jmlo24r0m3qIwP1KQQP4mZDnznj6T8Y6zyKVGQFu9t0NRSR4MQqLjU',
+    }
+};
+
+function sendNotification() {
+    webpush.setVapidDetails('mailto:freiheit@htw-berlin.de', publicVapidKey, privateVapidKey);
+    const payload = JSON.stringify({
+        title: 'New Push Notification',
+        content: 'New data in database!'
+    });
+    webpush.sendNotification(pushSubscription,payload)
+        .catch(err => console.error(err));
+    console.log('push notification sent');
+    // res.status(201).json({ message: 'push notification sent'});
+}
+
 
 // POST one post
 router.post('/', upload.single('file'), async(req, res) => {
-    if(req.file === undefined)
-    {
+    // req.file is the `file` file
+    if (req.file === undefined) {
         return res.send({
             "message": "no file selected"
-        })
+        });
     } else {
+        console.log('req.body', req.body);
+        console.log('req.file', req.file);
         const newPost = new Post({
             title: req.body.title,
             location: req.body.location,
             image_id: req.file.filename
         })
-        console.log('newPost', newPost)
         await newPost.save();
-        res.send(newPost)
+        sendNotification();
+        return res.send(newPost);
     }
 })
 
