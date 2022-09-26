@@ -174,13 +174,15 @@ function createCard(card) {
     cardTitleText.textContent = card.title;
     cardTitleText.style.textAlign = 'center';
     cardTitleText.style.fontSize = '15px';
+    cardTitleText.style.fontFamily = 'monospace';
     cardWrapper.appendChild(cardTitleText);
 
     let cardSupportingText = document.createElement('div');
     cardSupportingText.className = 'mdl-card__supporting-text';
     cardSupportingText.textContent = "Ort: " + card.location;
     cardSupportingText.style.textAlign = 'center';
-    cardTitleText.style.fontSize = '15px';
+    cardSupportingText.style.fontSize = '12px';
+    cardSupportingText.style.fontFamily = 'monospace';
     cardWrapper.appendChild(cardSupportingText);
     componentHandler.upgradeElement(cardWrapper);
     sharedMomentsArea.appendChild(cardWrapper);
