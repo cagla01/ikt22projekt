@@ -25,15 +25,15 @@
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <header class="mdl-layout__header">
             <div class="mdl-layout__header-row">
-                <span class="mdl-layout-title">FooDiary</span>
+                <span id="ueberschrift" class="mdl-layout-title">FooDiary</span>
                 <div class="mdl-layout-spacer"></div>
                 <div class="drawer-option">
-                    <button id="install" style="display:none;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-button--fab mdl-button--mini-fab" title="Install">
+                    <button id="install" style="display:none;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-button--fab mdl-button--mini-fab" title="Installieren">
                         <i class="material-icons">arrow_downward</i>
                     </button>
                 </div>
                 <div class="drawer-option">
-                    <button id="notification" class="enable-notifications btn-floating mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-color--accent mdl-button--fab mdl-button--mini-fab" title="Notification on!">
+                    <button id="notification" class="enable-notifications mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-button--fab mdl-button--mini-fab" title="Benachrichtigung an!">
                         <i class="material-icons">notifications</i>
                     </button>
                 </div>
@@ -45,11 +45,11 @@
                 <form>
                     <video id="player" autoplay></video>
                     <canvas id="canvas" width="320px" height="240px"></canvas>
-                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="capture-btn">
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" id="capture-btn">
                         <i class="material-icons">camera_alt</i>
                     </button>
                     <div id="pick-image">
-                        <h6>Select picture</h6>
+                        <h6>Bild auswählen</h6>
                         <input type="file" accept="image/*" id="image-picker">
                     </div>
                     <div class="input-section mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -61,19 +61,17 @@
                         <label class="mdl-textfield__label" for="location" name="location">Ort</label>
                     </div>
                     <div class="input-section">
-                        <button class="mdl-button mdl-js-button mdl-button--colored" type="button" id="location-btn">Location</button>
+                        <button class="mdl-button mdl-js-button mdl-button--colored" type="button" id="location-btn" style="color: #9091e9">Standort</button>
                         <div class="mdl-spinner mdl-js-spinner is-active" id="location-loader"></div>
                     </div>
                     <div id="map" class="map"></div>
                     <br>
-                    <div>
+                    <div style="margin-bottom: 20px">
                         <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
-                                type="submit" id="post-btn">Save
+                                type="submit" id="post-btn">
+                            Speichern
                         </button>
-                    </div>
-                    <br>
-                    <div>
-                        <button class="mdl-button mdl-js-button mdl-button--fab" id="close-create-post-modal-btn" type="button">
+                        <button class="mdl-button mdl-js-button mdl-button--accent mdl-button--fab mdl-button--mini-fab" id="close-create-post-modal-btn" type="button">
                             <i class="material-icons">close</i>
                         </button>
                     </div>
@@ -84,7 +82,7 @@
                 <div id="shared-moments"></div>
             </div>
             <div class="floating-button">
-                <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored"
+                <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-button--mini-fab"
                         id="share-image-button">
                     <i class="material-icons">add</i>
                 </button>

@@ -7,15 +7,18 @@
 }
 
 .mdl-layout__header{
-    background: #1EAE98;
+    background: #deface;
 }
 
 #share-image-button{
-    background: #1EAE98;
+    background: #c6c6f4;
+    box-shadow: 2px 2px #9091e9;
 }
 
 #post-btn{
-    background: #1EAE98;
+    background: #c6c6f4;
+    box-shadow: 2px 2px #9091e9;
+    margin-right: 10px;
 }
 
 .enable-notifications {
@@ -23,4 +26,39 @@
 }
 
 #install{
+    background: #c6c6f4;
+    box-shadow: 2px 2px #9091e9;
+}
+
+#notification{
+    background: #c6c6f4;
+    box-shadow: 2px 2px #9091e9;
+}
+
+#capture-btn{
+    background: #c6c6f4;
+    box-shadow: 2px 2px #9091e9;
+}
+
+#close-create-post-modal-btn{
+    background: #cccccc;
+    box-shadow: 2px 2px #bbbbbb;
+}
+
+#ueberschrift{
+    color: #c6c6f4;
+    text-shadow: 2px 2px #9091e9;
+    font-family: monospace;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.mdl-textfield__input{
+    border-bottom: 1px solid #c6c6f4;
+}
+.mdl-textfield__label{
+    color: #c6c6f4;
+}
+.mdl-textfield__label:after {
+    background-color: #c6c6f4 !important;
 }

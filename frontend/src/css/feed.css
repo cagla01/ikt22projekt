@@ -68,6 +68,12 @@
     margin: 10px;
 }
 
+.shared-moment-card .mdl-card__title {
+    height: 300px;
+    border-radius: 5px;
+    background-size: 100% 100%;
+}
+
 @media (min-width: 300px) {
 
     #shared-moments{
@@ -127,11 +133,11 @@
         grid-template-columns: repeat(4, 1fr);
     }
 }
-
+/*
 .shared-moment-card .mdl-card__title {
     height: 250px;
 }
-
+*/
 @media (min-height: 600px) {
     .shared-moment-card .mdl-card__title {
         height: 300px;
