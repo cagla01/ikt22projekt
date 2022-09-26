@@ -3,8 +3,8 @@ const router = express.Router();
 const Post = require('../models/posts')
 const upload = require('../middleware/upload')
 const mongoose = require('mongoose')
-require('dotenv').config()
 const webpush = require('web-push');
+require('dotenv').config()
 
 const publicVapidKey = 'BM8oZZuUzCbrrBLou5ALaLvDqFoZ-spsUse8B_HYgLF0iA6NGYXIWMRrtEPZ4foBIYj2GiJOHsDTW1aq9RKdyag';
 const privateVapidKey = 'Rk-rutEWKJc1PECEWeGj-dEQ5jc3r7DtnZ6vWFaLkww';
@@ -17,7 +17,7 @@ const pushSubscription = {
 };
 
 function sendNotification() {
-    webpush.setVapidDetails('mailto:freiheit@htw-berlin.de', publicVapidKey, privateVapidKey);
+    webpush.setVapidDetails('mailto:Cagla.Karaman@Student.HTW-Berlin.de', publicVapidKey, privateVapidKey);
     const payload = JSON.stringify({
         title: 'New Push Notification',
         content: 'New data in database!'

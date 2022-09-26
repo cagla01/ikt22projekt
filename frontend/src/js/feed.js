@@ -160,22 +160,25 @@ closeCreatePostModalButton.addEventListener('click', closeCreatePostModal);
 function createCard(card) {
     let cardWrapper = document.createElement('div');
     cardWrapper.className = 'shared-moment-card mdl-card mdl-shadow--2dp';
+    cardWrapper.style.width='250px'
     let cardTitle = document.createElement('div');
     cardTitle.className = 'mdl-card__title';
     let image = new Image();
     image.src = card.image_id;
     cardTitle.style.backgroundImage = 'url('+ image.src +')';
     cardTitle.style.backgroundSize = 'cover';
-
     cardWrapper.appendChild(cardTitle);
-    let cardTitleTextElement = document.createElement('h2');
-    cardTitleTextElement.className = 'mdl-card__title-text';
-    cardTitleTextElement.textContent = card.title;
-    cardTitleTextElement.classList.add('whiteText');
-    cardTitle.appendChild(cardTitleTextElement);
+
+    let cardTitleText = document.createElement('div');
+    cardTitleText.className = 'mdl-card__supporting-text';
+    cardTitleText.textContent = card.title;
+    cardTitleText.style.textAlign = 'center';
+    cardTitleText.style.fontSize ='15px';
+    cardWrapper.appendChild(cardTitleText);
+
     let cardSupportingText = document.createElement('div');
     cardSupportingText.className = 'mdl-card__supporting-text';
-    cardSupportingText.textContent = card.location;
+    cardSupportingText.textContent = "Ort: " + card.location;
     cardSupportingText.style.textAlign = 'center';
     cardWrapper.appendChild(cardSupportingText);
     componentHandler.upgradeElement(cardWrapper);
@@ -302,4 +305,8 @@ captureButton.addEventListener('click', event => {
             file = new File([blob], "myFile.jpg", { type: "image/jpg" })
             console.log('file', file)
         })
+});
+
+imagePicker.addEventListener('change', event => {
+    file = event.target.files[0];
 });
